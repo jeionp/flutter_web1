@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:flutter_web1/screens/home.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_web1/layout.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,12 +14,21 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Flutter Demo',
+      title: 'Dash',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+        scaffoldBackgroundColor: Colors.white,
+        textTheme: GoogleFonts.mulishTextTheme(
+          Theme.of(context).textTheme
+        ).apply(
+          bodyColor: Colors.black
+        ),
+        pageTransitionsTheme: const PageTransitionsTheme(builders: {
+          TargetPlatform.iOS: FadeUpwardsPageTransitionsBuilder(),
+          TargetPlatform.android: FadeUpwardsPageTransitionsBuilder(),
+        }),
+        primaryColor: Colors.blue,
       ),
-      home: HomeScreen(),
+      home: SiteLayout(),
     );
   }
 }
