@@ -1,5 +1,8 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_web1/helpers/responsiveness.dart';
+import 'package:flutter_web1/widgets/large_screen.dart';
+import 'package:flutter_web1/widgets/small_screen.dart';
 
 class SiteLayout extends StatelessWidget {
   const SiteLayout({super.key});
@@ -11,21 +14,7 @@ class SiteLayout extends StatelessWidget {
         elevation: 0,
         backgroundColor: Colors.white,
       ),
-      body: Row(
-        children: [
-          Expanded(
-            child: Container(
-              color: Colors.red,
-            ),
-          ),
-          Expanded(
-            flex: 5,
-            child: Container(
-              color: Colors.blue,
-            ),
-          ),
-        ],
-      ),
+      body: ResponsiveWidget(largeScreen: LargeScreen(), smallScreen: SmallScreen(),),
     );
   }
 }
