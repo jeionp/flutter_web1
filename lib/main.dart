@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_web1/layout.dart';
+import 'package:flutter_web1/controllers/menu_controller.dart' as menu_controller;
 
 void main() {
+  Get.put(menu_controller.MenuController());
   runApp(const MyApp());
 }
 
